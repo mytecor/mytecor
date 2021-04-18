@@ -76,10 +76,12 @@ function About() {
 					en: `Hi, I'm Vlad<br>
 						Born ${born} (${today + age} y.o.) in Moscow<br>
 						Around the age of 11, I became interested in programming<br>
-						Well this is just the beginning`,
+						At the moment, I'm idling in college, writing cool stuff in js in parallel.<br>
+						Well this is just the beginning (๑˃ᴗ˂)ﻭ`,
 					ru: `Привет, я Влад<br>
 						Родился ${born} (${today + age} y.o.) в Москве<br>
-						Примерно в 11 лет я увлёкся программированием<br>
+						Примерно в 11 я увлёкся программированием<br>
+						На данный момент бездельничаю в колледже, параллельно пишу всякие крутые штуки на js.<br>
 						Ну это только начало (๑˃ᴗ˂)ﻭ`
 				})
 			})
@@ -126,22 +128,22 @@ function Content() {
 			}),
 			ProjectsList([
 				{
-					name: 'rmce',
-					en: 'React mini code editor',
-					ru: 'Мини редактор кода для React',
-					href: 'https://mytecor.github.io/rmce'
-				},
-				{
 					name: 'live-example',
 					en: 'React live code preview',
 					ru: 'Предпросмотр jsx кода в реальном времени',
 					href: 'https://mytecor.github.io/live-example'
 				},
 				{
-					name: 'node-sauce',
-					en: 'SauceNAO api wrapper that is able to circumvent the restrictions',
-					ru: 'Обертка для апи SauceNAO, обходит ограничения',
-					href: 'https://github.com/mytecor/node-sauce'
+					name: 'rmce',
+					en: 'React mini code editor',
+					ru: 'Мини редактор кода для React',
+					href: 'https://mytecor.github.io/rmce'
+				},
+				{
+					name: 'idea-cipher',
+					en: 'International Data Encryption Algorithm cipher tool',
+					ru: 'IDEA в браузере',
+					href: 'https://mytecor.github.io/idea-cipher'
 				},
 				{
 					name: 'hotkeys-nano',
@@ -152,9 +154,15 @@ function Content() {
 				{
 					name: 'vse-zadachi',
 					en: 'Answers to problems obtained using sql injections',
-					ru: 'Ответы на задачи, которые я однажды слил с пары сайтов через sql инъенкцию',
+					ru: 'Ответы на задачи, полученые через sql инъенкцию',
 					href: 'https://mytecor.github.io/vse-zadachi'
-				}
+				},
+				{
+					name: 'node-sauce',
+					en: 'SauceNAO api wrapper that is able to circumvent the restrictions',
+					ru: 'Обертка для апи SauceNAO, обходит ограничения',
+					href: 'https://github.com/mytecor/node-sauce'
+				},
 			]),
 			Title({
 				en: 'Denpo - nodejs telegram client',
