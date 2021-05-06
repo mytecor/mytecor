@@ -1,3 +1,2 @@
+### Bio on [mytecor.github.io](https://mytecor.github.io)
 ![Views](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2Fmytecor%2Fmytecor&count_bg=%2379C83D&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=Views&edge_flat=true)
-
-
