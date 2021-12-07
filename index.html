@@ -1,26 +1,31 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Mytecor's projects</title>
-	<link rel="stylesheet" href="./styles.css">
-	<script src="./lib.js"></script>
-	<meta name="description" content="Do I have a bio?"/>
-	<meta property="og:title" content="Mytecor's projects"/>
-	<meta property="og:description" content="Do I have a bio?"/>
-	<meta property="og:image" content="https://avatars.githubusercontent.com/u/20505643"/>
-</head>
-<body>
-	<div class="root"></div>
-	<script src="./main.js"></script>
-	<script>
-		let el = document.querySelector('.logo').style
-		if('paintWorklet' in CSS) CSS.paintWorklet.addModule('https://unpkg.com/smooth-corners').then(() => {
-			el.mask = 'paint(smooth-corners)'
-			el.webkitMask = 'paint(smooth-corners)'
-		})
-	</script>
-	<img class="counter" src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=mytecor&count_bg=%2379C83D&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=👁&edge_flat=true">
-</body>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Mytecor's projects</title>
+		<link rel="stylesheet" href="./styles.css" />
+		<script src="./lib.js"></script>
+		<meta name="description" content="Do I have a bio?" />
+		<meta property="og:title" content="Mytecor's projects" />
+		<meta property="og:description" content="Do I have a bio?" />
+		<meta property="og:image" content="https://avatars.githubusercontent.com/u/20505643" />
+		<meta name="yandex-verification" content="ab5d4a62725ba424" />
+	</head>
+	<body>
+		<div class="root"></div>
+		<script src="./main.js"></script>
+		<script>
+			let el = document.querySelector('.logo').style
+			if ('paintWorklet' in CSS)
+				CSS.paintWorklet.addModule('https://unpkg.com/smooth-corners').then(() => {
+					el.mask = 'paint(smooth-corners)'
+					el.webkitMask = 'paint(smooth-corners)'
+				})
+		</script>
+		<img
+			class="counter"
+			src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=mytecor&count_bg=%2379C83D&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=👁&edge_flat=true"
+		/>
+	</body>
 </html>
