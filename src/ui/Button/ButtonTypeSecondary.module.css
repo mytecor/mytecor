@@ -1,0 +1,41 @@
+:global(.theme-dark) {
+  --button_type-secondary-inactive-bg-color: hsl(255, 6%, 15%);
+  --button_type-secondary-inactive-text-color: hsl(255, 6%, 70%);
+  --button_type-secondary-hover-bg-color: hsl(255, 6%, 17%);
+  --button_type-secondary-hover-text-color: hsl(255, 6%, 70%);
+  --button_type-secondary-active-bg-color: hsl(255, 6%, 13%);
+  --button_type-secondary-active-text-color: hsl(255, 6%, 70%);
+}
+
+:global(.theme-light) {
+  --button_type-secondary-inactive-bg-color: red;
+  --button_type-secondary-inactive-text-color: red;
+  --button_type-secondary-hover-bg-color: red;
+  --button_type-secondary-hover-text-color: red;
+  --button_type-secondary-active-bg-color: red;
+  --button_type-secondary-active-text-color: red;
+}
+
+.button_type-secondary {
+  background: var(--button_type-secondary-inactive-bg-color);
+
+  .text {
+    color: var(--button_type-secondary-inactive-text-color);
+  }
+}
+
+.button_type-secondary:hover {
+  background: var(--button_type-secondary-hover-bg-color);
+
+  .text {
+    color: var(--button_type-secondary-hover-text-color);
+  }
+}
+
+.button_type-secondary:active {
+  background: var(--button_type-secondary-active-bg-color);
+
+  .text {
+    color: var(--button_type-secondary-active-text-color);
+  }
+}

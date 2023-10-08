@@ -1,0 +1,64 @@
+@layer ui.app_window.header.control {
+  .app_window_header_control {
+    width: calc(5px * var(--ui-scale));
+    height: calc(5px * var(--ui-scale));
+
+    image-rendering: pixelated;
+    mask-image: url('./img/control-mask.png');
+    mask-size: cover;
+
+    border: none;
+    position: relative;
+    padding: 0;
+    transition: all 0.1s;
+
+    &::after {
+      transition: all 0.1s;
+      position: absolute;
+      content: '';
+      inset: 0;
+
+      mask-image: url('./img/control-border.png');
+      mask-size: cover;
+    }
+  }
+
+  .close {
+    composes: app_window_header_control;
+    background-color: #ed6a5e;
+
+    &:active,
+    &::after {
+      background-color: #c95a50;
+    }
+  }
+
+  .minimize {
+    composes: app_window_header_control;
+    background-color: #f4bf4f;
+
+    &:active,
+    &::after {
+      background-color: #cfa243;
+    }
+  }
+
+  .fullscreen {
+    composes: app_window_header_control;
+    background-color: #60c454;
+
+    &:active,
+    &::after {
+      background-color: #52a747;
+    }
+  }
+
+  .focus_target:not(:focus-within)
+    :where(.close, .minimize, .fullscreen):not(:active) {
+    background-color: #353538;
+
+    &::after {
+      background-color: #353538;
+    }
+  }
+}

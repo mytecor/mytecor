@@ -1,0 +1,24 @@
+:global(.theme-dark) {
+  --app_window_header-active-bg-color: hsl(255, 6%, 14%);
+  --app_window_header-inactive-bg-color: hsl(255, 6%, 13%);
+}
+
+:global(.theme-light) {
+  --app_window_header-active-bg-color: hsl(255, 6%, 70%);
+  --app_window_header-inactive-bg-color: hsl(255, 6%, 60%);
+}
+
+@layer ui.app_window.header {
+  .app_window_header {
+    display: flex;
+    gap: calc(5px * var(--ui-scale));
+    padding: calc(5px * var(--ui-scale));
+
+    justify-content: space-between;
+    background-color: var(--app_window_header-inactive-bg-color);
+  }
+
+  .focus_target:focus .app_window_header {
+    background-color: var(--app_window_header-active-bg-color);
+  }
+}

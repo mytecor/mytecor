@@ -1,0 +1,21 @@
+:global(.theme-dark) {
+  --app_window_header_title-active-text-color: hsl(255, 6%, 80%);
+  --app_window_header_title-inactive-text-color: hsl(255, 6%, 40%);
+}
+
+:global(.theme-light) {
+  --app_window_header_title-active-text-color: hsl(255, 6%, 40%);
+  --app_window_header_title-inactive-text-color: hsl(255, 6%, 80%);
+}
+
+@layer ui.app_window.header.title {
+  .app_window .app_window_header_title {
+    user-select: none;
+    color: var(--app_window_header_title-inactive-text-color);
+    transition: all 0.1s;
+  }
+
+  .app_window:focus-within .app_window_header_title {
+    color: var(--app_window_header_title-active-text-color);
+  }
+}

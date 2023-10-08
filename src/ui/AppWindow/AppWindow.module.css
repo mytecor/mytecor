@@ -1,0 +1,38 @@
+:global(.theme-dark) {
+  --app_window-active-bg-color: hsla(255, 6%, 9%, 0.2);
+  --app_window-inactive-bg-color: hsl(255, 6%, 9%);
+  --app_window-active-border-color: hsl(255, 6%, 20%);
+  --app_window-inactive-border-color: hsl(255, 6%, 16%);
+}
+
+:global(.theme-light) {
+  --app_window-active-bg-color: hsla(255, 6%, 91%, 0.2);
+  --app_window-inactive-bg-color: hsl(255, 6%, 40%);
+  --app_window-active-border-color: hsl(255, 6%, 40%);
+  --app_window-inactive-border-color: hsl(255, 6%, 30%);
+}
+
+@layer ui.app_window {
+  .app_window_border::before {
+    background-color: var(--app_window-inactive-border-color);
+
+    transition: all 0.1s;
+  }
+
+  .app_window_border:focus-within::before {
+    background-color: var(--app_window-active-border-color);
+  }
+
+  .app_window {
+    composes: app_window_border;
+    background-color: var(--app_window-inactive-bg-color);
+    padding: calc(1px * var(--ui-scale));
+
+    transition: all 0.1s;
+  }
+
+  .app_window:focus-within {
+    background-color: var(--app_window-active-bg-color);
+    backdrop-filter: blur(10px);
+  }
+}

@@ -1,0 +1,41 @@
+:global(.theme-dark) {
+  --button_type-link-inactive-bg-color: red;
+  --button_type-link-inactive-text-color: red;
+  --button_type-link-hover-bg-color: red;
+  --button_type-link-hover-text-color: red;
+  --button_type-link-active-bg-color: red;
+  --button_type-link-active-text-color: red;
+}
+
+:global(.theme-light) {
+  --button_type-link-inactive-bg-color: red;
+  --button_type-link-inactive-text-color: red;
+  --button_type-link-hover-bg-color: red;
+  --button_type-link-hover-text-color: red;
+  --button_type-link-active-bg-color: red;
+  --button_type-link-active-text-color: red;
+}
+
+.button_type-link {
+  background: var(--button_type-link-inactive-bg-color);
+
+  .text {
+    color: var(--button_type-link-inactive-text-color);
+  }
+}
+
+.button_type-link:hover {
+  background: var(--button_type-link-hover-bg-color);
+
+  .text {
+    color: var(--button_type-link-hover-text-color);
+  }
+}
+
+.button_type-link:active {
+  background: var(--button_type-link-active-bg-color);
+
+  .text {
+    color: var(--button_type-link-active-text-color);
+  }
+}

@@ -1,0 +1,15 @@
+.button_size-large {
+  padding: calc(8px * var(--ui-scale));
+}
+
+.button_size-large .button_size-large-icon {
+  width: calc(12px * var(--ui-scale));
+  height: calc(12px * var(--ui-scale));
+}
+
+.button_size-large .button_size-large-text {
+  margin: 0 calc(4px * var(--ui-scale));
+  font-size: calc(12px * var(--ui-scale));
+  line-height: 1;
+  text-transform: uppercase;
+}

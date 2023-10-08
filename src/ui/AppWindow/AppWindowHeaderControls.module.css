@@ -1,0 +1,6 @@
+@layer ui.app_window.header.controls {
+  .app_window_header_controls {
+    display: flex;
+    gap: 8px;
+  }
+}

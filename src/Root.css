@@ -1,0 +1,26 @@
+@layer ui, app;
+
+html {
+  background-color: #151515;
+  min-height: 100%;
+  display: flex;
+}
+
+body {
+  display: contents;
+}
+
+#root {
+  flex: 1;
+}
+
+*,
+::before,
+::after {
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.window_manager {
+  height: 100%;
+}

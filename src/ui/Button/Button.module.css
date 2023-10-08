@@ -1,0 +1,26 @@
+.button_border::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+
+  mask-border: url('./img/border.png') 2 / calc(2px * var(--ui-scale));
+  image-rendering: pixelated;
+  pointer-events: none;
+}
+
+.button {
+  composes: button_border;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  cursor: pointer;
+  user-select: none;
+  text-decoration: none;
+  transition: 0.2s all;
+
+  mask-border: url('./img/mask.png') 2 / calc(2px * var(--ui-scale));
+  image-rendering: pixelated;
+  position: relative;
+}

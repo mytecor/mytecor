@@ -1,0 +1,31 @@
+:global(.theme-dark) {
+  --rounded_block-text-color: hsl(255, 6%, 80%);
+}
+
+:global(.theme-light) {
+  --rounded_block-text-color: hsl(255, 6%, 80%);
+}
+
+@layer ui.rounded_block {
+  .rounded_block_border::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+
+    mask-border: url('./img/border.png') 3 / calc(3px * var(--ui-scale));
+    image-rendering: pixelated;
+    pointer-events: none;
+  }
+
+  .rounded_block {
+    composes: rounded_block_border;
+    mask-border: url('./img/mask.png') 3 / calc(3px * var(--ui-scale));
+    image-rendering: pixelated;
+    position: relative;
+    padding: calc(6px * var(--ui-scale));
+
+    .text {
+      color: var(--rounded_block-text-color);
+    }
+  }
+}

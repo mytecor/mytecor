@@ -1,0 +1,51 @@
+:global(.theme-dark) {
+  --text-color: hsl(0, 0%, 100%);
+  --text-secondary-color: hsl(0, 0%, 100%);
+}
+:global(.theme-light) {
+  --text-color: hsl(0, 0%, 0%);
+  --text-secondary-color: hsl(0, 0%, 0%);
+}
+
+@font-face {
+  font-family: 'pixy';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('./pixy.regular.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'MonoCraft';
+  font-style: normal;
+  font-display: swap;
+  src: url('./MonoCraft.ttf') format('truetype');
+}
+
+@layer ui.text {
+  .text {
+    --char-size: 7px;
+    font-family: 'MonoCraft', cursive;
+    font-size: calc(var(--char-size) * var(--ui-scale));
+    line-height: calc((var(--char-size) - 1px) * var(--ui-scale));
+    font-weight: bold;
+    margin-top: calc(-1px * var(--ui-scale));
+    color: var(--text-color);
+  }
+
+  .bold {
+    font-weight: 600;
+  }
+
+  .uppercase {
+    text-transform: uppercase;
+  }
+
+  .error {
+    composes: uppercase bold;
+    color: var(--text-error-color);
+  }
+
+  .secondary {
+    color: var(--text-secondary-color);
+  }
+}

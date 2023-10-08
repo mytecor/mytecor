@@ -1,0 +1,7 @@
+.draggable {
+  position: absolute;
+  left: 0;
+  top: 0;
+  transform: translate(calc(var(--x, 0) * 1px), calc(var(--y, 0) * 1px));
+  touch-action: none;
+}

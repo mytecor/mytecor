@@ -1,0 +1,42 @@
+:global(.theme-dark) {
+  --button_type-outline-inactive-bg-color: red;
+  --button_type-outline-inactive-text-color: red;
+  --button_type-outline-hover-bg-color: red;
+  --button_type-outline-hover-text-color: red;
+  --button_type-outline-active-bg-color: red;
+  --button_type-outline-active-text-color: red;
+}
+
+:global(.theme-light) {
+  --button_type-outline-inactive-bg-color: red;
+  --button_type-outline-inactive-text-color: red;
+  --button_type-outline-hover-bg-color: red;
+  --button_type-outline-hover-text-color: red;
+  --button_type-outline-active-bg-color: red;
+  --button_type-outline-active-text-color: red;
+}
+
+.button_type-outline {
+  background: var(--button_type-outline-inactive-bg-color);
+  box-shadow: 0 0 0 2px currentColor inset;
+
+  .text {
+    color: var(--button_type-outline-inactive-text-color);
+  }
+}
+
+.button_type-outline:hover {
+  background: var(--button_type-outline-hover-bg-color);
+
+  .text {
+    color: var(--button_type-outline-hover-text-color);
+  }
+}
+
+.button_type-outline:active {
+  background: var(--button_type-outline-active-bg-color);
+
+  .text {
+    color: var(--button_type-outline-active-text-color);
+  }
+}

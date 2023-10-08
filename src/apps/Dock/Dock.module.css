@@ -1,0 +1,34 @@
+:global(.theme-dark) {
+  --app_dock-bg-color: hsl(255, 6%, 14%);
+  --app_dock-border-color: hsl(255, 6%, 20%);
+}
+
+:global(.theme-light) {
+  --app_dock-bg-color: hsl(255, 6%, 40%);
+  --app_dock-border-color: hsl(255, 6%, 40%);
+}
+
+.dock_border::before {
+  background-color: var(--app_dock-border-color);
+}
+
+.dock_border:focus-within::before {
+  background-color: var(--app_dock-border-color);
+}
+
+@layer app {
+  .dock {
+    composes: dock_border;
+
+    position: fixed;
+
+    bottom: calc(4px * var(--ui-scale));
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10000;
+    padding: calc(4px * var(--ui-scale));
+
+    background-color: var(--app_dock-bg-color);
+    backdrop-filter: blur(10px);
+  }
+}

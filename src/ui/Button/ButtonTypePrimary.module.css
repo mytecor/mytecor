@@ -1,0 +1,41 @@
+:global(.theme-dark) {
+  --button_type-primary-inactive-bg-color: red;
+  --button_type-primary-inactive-text-color: red;
+  --button_type-primary-hover-bg-color: red;
+  --button_type-primary-hover-text-color: red;
+  --button_type-primary-active-bg-color: red;
+  --button_type-primary-active-text-color: red;
+}
+
+:global(.theme-light) {
+  --button_type-primary-inactive-bg-color: red;
+  --button_type-primary-inactive-text-color: red;
+  --button_type-primary-hover-bg-color: red;
+  --button_type-primary-hover-text-color: red;
+  --button_type-primary-active-bg-color: red;
+  --button_type-primary-active-text-color: red;
+}
+
+.button_type-primary {
+  background: var(--button_type-primary-inactive-bg-color);
+
+  .text {
+    color: var(--button_type-primary-inactive-text-color);
+  }
+}
+
+.button_type-primary:hover {
+  background: var(--button_type-primary-hover-bg-color);
+
+  .text {
+    color: var(--button_type-primary-hover-text-color);
+  }
+}
+
+.button_type-primary:active {
+  background: var(--button_type-primary-active-bg-color);
+
+  .text {
+    color: var(--button_type-primary-active-text-color);
+  }
+}
