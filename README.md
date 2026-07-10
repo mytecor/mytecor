@@ -12,7 +12,7 @@ Currently fascinated by web3, blockchain, and distributed computing, as well as 
 
 ## Commercial experience
 
-### Yandex FinTech - Frontend Developer (Nov 2024 - Present)
+### Yandex FinTech - Frontend Developer (Nov 2024 - Jul 2026)
 
 - Developed the frontend chat SDK engine: SyncService, transport layer, local database, and optimistic updates.
 - Launched an interactive help center for the bank using Nest and NextJS, integrating it into the bank's web version.
