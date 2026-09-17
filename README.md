@@ -1,7 +1,7 @@
 # Vladislav Afonin
 
 [![Total time coded since Oct 6 2021](https://wakatime.com/badge/user/e81ab393-8d26-4758-8a10-ad6cc672dc16.svg?style=for-the-badge&color=151515)](https://wakatime.com/@mytecor)
-![TypeScript](https://img.shields.io/badge/TypeScript-151515?logo=typescript&style=for-the-badge)![JavaScript](https://img.shields.io/badge/JavaScript-151515?logo=javascript&style=for-the-badge)![Rust](https://img.shields.io/badge/Rust-151515?logo=rust&style=for-the-badge)![Nix](https://img.shields.io/badge/Nix-151515?logo=nixos&style=for-the-badge)![GDScript](https://img.shields.io/badge/GDScript-151515?logo=godot-engine&style=for-the-badge)![Python](https://img.shields.io/badge/Python-151515?logo=python&style=for-the-badge)![PHP](https://img.shields.io/badge/PHP-151515?logo=php&style=for-the-badge)
+![TypeScript](https://img.shields.io/badge/TypeScript-151515?logo=typescript&style=for-the-badge)![JavaScript](https://img.shields.io/badge/JavaScript-151515?logo=javascript&style=for-the-badge)![Rust](https://img.shields.io/badge/Rust-151515?logo=rust&style=for-the-badge)![Nix](https://img.shields.io/badge/Nix-151515?logo=nixos&style=for-the-badge)![GDScript](https://img.shields.io/badge/GDScript-151515?logo=godot-engine&style=for-the-badge)![Python](https://img.shields.io/badge/Python-151515?logo=python&style=for-the-badge)![PHP](https://img.shields.io/badge/PHP-151515?logo=php&style=for-the-badge)![Go](https://shields.io/badge/Go-151515?logo=go&style=for-the-badge)
 
 ## About
 
@@ -36,8 +36,12 @@ Currently fascinated by web3, blockchain, and distributed computing, as well as 
 
 ## Open-source projects
 
-- [SOCKS5 proxy over the Reticulum Network Stack](https://github.com/mytecor/rns-proxy)
-- [Ubenchan benchmarking](https://uben.ch)
+- [r1s - decentralized OCI workload execution fabric over the Reticulum Network Stack](https://github.com/mytecor/r1s)
+- [Lattice - autonomous node network over Reticulum, reproducible via Nix flakes](https://github.com/mytecor/lattice)
+- [SOCKS5 proxy over the Reticulum Network Stack](https://github.com/mytecor/rns-proxy)
+- [codec - declarative binary (de)serialization workspace](https://github.com/mytecor/codec)
+- [agentrun-openai - OpenAI adapter for the agentrun Go library](https://github.com/mytecor/agentrun-openai)
+- [Ubenchan benchmarking](https://github.com/ubenchan/frontend)
 - [IDEA cipher algorithm implementation](https://mytecor.github.io/idea-cipher/)
 - [Simple code editor with highlighting](https://mytecor.github.io/rmce/)
 - [Saucenao client](https://www.npmjs.com/package/node-sauce)
@@ -126,8 +130,8 @@ Currently fascinated by web3, blockchain, and distributed computing, as well as 
 | Database           | MongoDB (with Mongoose), ArangoDB, Redis, ChromaDB, PostgreSQL, MySQL |
 | Graphs, Alerts     | Grafana                                                               |
 | Object Storage     | Minio                                                                 |
-| OS                 | NixOS, Debian, Ubuntu                                                 |
-| AI Tools           | OpenCode, OpenClaw                                                    |
+| OS                 | macOS, NixOS, Debian, Ubuntu                                          |
+| AI Tools           | Pi, Codex, Claude Code, OpenCode, OpenClaw                            |
 | Browser Automation | Playwright                                                            |
 | Containers         | Docker, Docker Compose, Podman, k8s                                   |
 
