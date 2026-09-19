@@ -1,6 +1,6 @@
 # Vladislav Afonin
 
-**Distributed Systems · Developer Infrastructure · AI Tooling · Full-stack**
+**Distributed Systems · Developer Infrastructure · AI Tooling**
 
 ## About
 
@@ -8,25 +8,25 @@
 
 Experience spans platform engineering, backend systems, networking, CI/CD, distributed state, and developer-facing infrastructure. Strong emphasis on type safety, explicit system boundaries, predictable failure handling, and reducing operational complexity.
 
-Technical work is typically driven by source-level research, RFCs, design documentation, profiling, and experimentation. Current interests include decentralized computing, mesh networking, alternative transports, and infrastructure for LLM agents, including model routing, persistent sessions, provider abstraction, and OpenAI-compatible APIs.
+Technical work is typically driven by source-level research, RFCs, design documentation, profiling, and experimentation. Current work and research areas include decentralized computing, mesh networking, alternative transports, and LLM agent systems, including model routing, persistent sessions, provider abstraction, and OpenAI-compatible APIs.
 
 Publishes technical notes and engineering articles on distributed systems, networking, infrastructure, and agent tooling in a [Telegram channel](https://t.me/mytelog).
 
 ## Selected Engineering Problems
 
-### Scaling an internal platform across 80+ applications
+### Keeping a shared platform consistent across 80+ applications
 
 An internal FinTech platform had grown to more than 80 administrative applications across approximately ten environments and was used by over ten engineering teams. Shared concerns such as authentication, routing, runtime behavior, CI/CD, and deployment needed to remain consistent while individual applications continued to evolve independently.
 
-Worked on the platform architecture and shared infrastructure, including runtime components, libraries, authentication, routing, deployment flows, and CI/CD. The platform became a common foundation for product teams instead of requiring each application to solve the same infrastructure problems independently.
+Designed and evolved shared platform infrastructure, including runtime components, libraries, authentication, routing, deployment flows, and CI/CD. Centralized common concerns at the platform level while preserving independent application development across teams.
 
-### Replacing GraphQL where it created more complexity than value
+### Migrating 80+ applications from GraphQL to tRPC
 
 The platform's GraphQL layer introduced schema compilation, duplicated validation, cumbersome handling of nested structures, additional parsing overhead, and a recurring risk of backward-incompatible API changes.
 
 Initiated and led a migration from GraphQL to tRPC across approximately 80 applications and their BFF layer. The migration replaced separately compiled schemas and runtime contract validation with end-to-end TypeScript types and removed the need for custom scalars or loosely typed JSON structures for complex data.
 
-The migration was completed in roughly one month and eliminated a recurring class of API compatibility failures while simplifying development and reducing protocol and client-bundle overhead.
+The migration was completed in roughly one month, eliminated a recurring class of API compatibility failures, simplified development, reduced serialization and parsing overhead, and removed GraphQL documents from client bundles.
 
 ### Separating chat state from the UI framework
 
@@ -42,46 +42,42 @@ An existing Help Center was embedded in the banking monolith and could not be re
 
 Extracted the Help Center into an independent service and handled the required CI/CD, deployment configuration, routing, integration, and release flows. The rollout was performed behind feature flags to avoid service disruption.
 
-Independent deployment significantly reduced coupling with the main banking application and made testing and releases of the Help Center substantially faster.
+Independent deployment decoupled Help Center delivery from the main banking application and enabled separate testing and release cycles.
 
 ## Commercial experience
 
-### Yandex FinTech - Software Engineer (2022-2026)
+### Yandex FinTech (2022 - 2026)
 
-### Frontend Developer (Nov 2024 - Jul 2026)
+#### Frontend Developer (Nov 2024 - Jul 2026)
 
-- Designed the core architecture of an internal Chat SDK, including local persistence, synchronization, transport abstraction, offline behavior, optimistic updates, retries, reconnect recovery, pagination, and reply navigation.
+- Designed and owned the architecture of an internal Chat SDK, separating synchronization, persistence, transport, and domain logic from the UI layer.
 - Owned development of Help Center applications and their integration into the banking platform.
-- Extracted the Help Center from the banking monolith and launched it as an independent service in a new Uzbekistan environment, covering CI/CD, deployment configuration, routing, integration, and release flows.
-- Introduced independent releases and feature-flagged rollout, decoupling Help Center delivery from the main banking application.
-- Developed a Zod/OpenAPI generator for tRPC-based internal applications.
-- Investigated complex runtime and integration issues, including BFF memory leaks and communication between services deployed on different platforms.
-- Worked with high availability, graceful degradation, retries, queues, distributed state, and failure recovery.
-- Authored RFCs and design documents, participated in architecture reviews, coordinated technical changes across frontend and backend teams, and informally mentored incoming engineers.
+- Extracted the Help Center from the banking monolith and launched it as an independent service in a new Uzbekistan environment.
+- Established CI/CD, deployment, routing, integration, and release flows for the new service in a team without a dedicated DevOps engineer.
+- Developed internal tooling around tRPC, Zod, and OpenAPI.
+- Investigated complex runtime and cross-platform integration issues, including BFF memory leaks and communication across heterogeneous deployment environments.
+- Authored RFCs and design documents, participated in architecture reviews, coordinated changes across frontend and backend teams, and informally mentored engineers.
 
-### Junior Frontend Developer (Jun 2022 - Oct 2023)
+#### Junior Frontend Developer (Jun 2022 - Oct 2023)
 
-- Helped build an internal platform from the ground up that grew to power more than **80 FinTech applications across ~6 environments and 10+ engineering teams**.
+- Helped build an internal application platform that grew to power more than **80 FinTech applications across 10+ engineering teams**.
 - Worked on shared platform infrastructure including runtime components, authentication, routing, reusable libraries, CI/CD, and deployment flows.
-- Initiated and led the migration from GraphQL to tRPC across the frontend and BFF layers, completing the transition across approximately 80 applications in about one month.
-- Eliminated schema compilation and duplicated runtime validation, simplified complex API shapes, and removed a recurring class of contract compatibility failures.
-- Prepared the platform for deployment into new environments as part of international expansion.
+- Initiated and led the migration of approximately 80 applications and their BFF layer from GraphQL to tRPC.
+- Prepared the platform for deployment into additional environments as part of international expansion.
 - Reworked an internal proxy around composable middleware and caching to improve reliability.
 - Integrated rate limiting on top of the Risk Management System.
 - Coordinated a major design-system upgrade across internal applications and dependent libraries.
 - Upgraded the Node.js runtime used by CI/CD infrastructure.
 
-## Selected open-source projects
+## Selected Open-Source Projects
 
 ### [r1s](https://github.com/mytecor/r1s)
 
 **Decentralized OCI workload execution fabric over the Reticulum Network Stack.**
 
-Designed and built a decentralized execution system in Go for running OCI workloads without a master node, global scheduler, registry, shared database, or mandatory common IP network.
+Designed and built a decentralized execution system in Go for running OCI workloads without a master node, global scheduler, cluster-wide registry, shared database, or mandatory common IP network.
 
 Clients publish workload demand, discover independent allocators over Reticulum, collect capacity offers, and select an execution target.
-
-The system includes:
 
 - decentralized allocator discovery and offer/select scheduling
 - OCI execution through containerd
@@ -101,8 +97,6 @@ Tested across multiple physical devices. An allocator requires only its RNS conf
 
 Exposes complete coding agents such as Claude Code and Codex through an OpenAI-compatible API while preserving their native tools and runtime.
 
-Features include:
-
 - dynamic model discovery
 - streaming completions and reasoning
 - persistent session affinity
@@ -113,6 +107,20 @@ Features include:
 - Linux, macOS, and Windows releases
 
 Designed so existing OpenAI-compatible applications can use full coding agents without implementing agent-specific integrations.
+
+### [rns-proxy](https://github.com/mytecor/rns-proxy)
+
+**SOCKS5 proxy for tunneling TCP traffic over the Reticulum Network Stack.**
+
+Built in Rust as a bridge between conventional IP applications and Reticulum. Applications connect to a standard local SOCKS5 endpoint, while TCP sessions are transported through an encrypted RNS link to a remote exit node.
+
+- Designed a client/server architecture with a local SOCKS5 proxy and an RNS-connected exit node.
+- Implemented a compact binary protocol for connection setup, bidirectional data transfer, errors, and session termination.
+- Multiplexed multiple TCP sessions over a single RNS link using session identifiers.
+- Added fragmentation and reassembly for payloads exceeding the RNS link MDU.
+- Implemented automatic recovery from link and transport failures with reconnection, exponential backoff, and RNS node recreation after repeated failures.
+
+The project allows existing SOCKS5-compatible applications to use Reticulum without native RNS integration.
 
 ### [UBenchan](https://github.com/ubenchan/frontend)
 
@@ -133,82 +141,56 @@ Implemented the IDEA block cipher from the algorithm specification, including th
 
 The implementation works directly with binary data through `Uint8Array`, `Uint16Array`, and `DataView`, and includes ECB-mode encryption and decryption together with an interactive browser demo.
 
-### [rns-proxy](https://github.com/mytecor/rns-proxy)
-
-**SOCKS5 proxy for tunneling arbitrary TCP traffic over the Reticulum Network Stack.**
-
-Built in Rust as a compatibility layer between conventional IP applications and Reticulum: applications connect to a standard local SOCKS5 endpoint, while their TCP sessions are transported through an encrypted RNS mesh to a remote exit node.
-
-- Designed a client/server architecture with a local SOCKS5 proxy and an RNS-connected exit node that establishes ordinary TCP connections on behalf of clients.
-- Implemented a custom binary framing protocol for `CONNECT`, connection result, bidirectional `DATA`, and `CLOSE` messages.
-- Multiplexed multiple independent TCP sessions over a single RNS link using session identifiers instead of creating a separate Reticulum connection for every socket.
-- Implemented automatic fragmentation and reassembly for frames exceeding the RNS link MDU.
-- Added recovery from link and underlying transport failures with automatic reconnection, exponential backoff, and full RNS node recreation after repeated failures.
-- Used asynchronous I/O with Rust and Tokio to relay traffic concurrently between SOCKS5 clients, the RNS transport, and remote TCP endpoints.
-- Added persistent RNS identities for exit nodes so their destination address remains stable across restarts.
-- Kept the interface transparent to applications: any software supporting SOCKS5 can use Reticulum without native RNS integration.
-
-The project explores how conventional stream-oriented applications can run over encrypted, delay-tolerant mesh networks without modifying the applications themselves.
-
-### [codec](https://github.com/mytecor/codec)
-
-Declarative binary serialization and deserialization workspace.
-
 ### [Lattice](https://github.com/mytecor/lattice)
 
 Experimental infrastructure for autonomous nodes and agents over Reticulum, with reproducible environments built around Nix.
 
-## Other engineering projects
+## Other Engineering Projects
 
 ### Myteor
 
-Long-running experimental distributed runtime project.
+**Experimental distributed runtime exploring transport, multiplexing, task distribution, and package delivery.**
 
-Implemented:
+Built as a long-running systems project for experimenting with low-level communication and execution primitives.
 
-- multipart streaming over raw TCP
-- stream multiplexing
-- binary CBOR/MessagePack protocols
-- master/worker task distribution
-- Rust-based SWC plugins
-- ESM module rewriting
-- S3-backed caching proxies for package and source distribution
+- Implemented multipart streaming over raw TCP and multiplexed multiple logical streams over a single connection.
+- Designed binary protocols over CBOR and MessagePack.
+- Built a master/worker task distribution model with worker capability polling.
+- Developed Rust-based SWC plugins for CJS → ESM transformation and rewriting module paths to remote HTTP sources.
+- Implemented S3-backed caching proxies for npm, GitHub, and other package and source-data providers.
 
 ### Denpo
 
-Experimental MTProto Telegram client with:
+**Experimental MTProto Telegram client focused on protocol parsing, code generation, and binary serialization.**
 
-- streaming TL lexer and parser
-- generated types from TL schemas
-- bidirectional binary serialization
-- browser-oriented architecture
+Built core protocol tooling from scratch with an emphasis on browser compatibility and strongly typed interfaces.
+
+- Implemented a streaming TL lexer and parser.
+- Generated types and protocol bindings directly from Telegram TL schemas.
+- Built bidirectional binary serialization and deserialization for MTProto data structures.
+- Designed the implementation around browser constraints rather than relying on Node.js-specific primitives.
 
 ### Electronic Gradebook
 
-Thesis project built around a custom application stack:
+**Thesis project with end-to-end ownership across the full application stack.**
 
-- OAuth2 implementation
-- type-safe RPC inspired by JSON-RPC
-- custom backend server
-- ArangoDB ODM
-- streaming SSR
-- CI/CD built from scratch
+Designed and implemented the system from authentication and RPC contracts to backend infrastructure, data access, SSR, frontend tooling, and CI/CD. Built a custom type-safe RPC layer, OAuth2 flow, ArangoDB ODM, streaming SSR, and supporting development tooling.
 
-### Email Template Editor for Market at Yandex School of Frontend Development Hackathon (SHRI)
+### Email Template Editor — Yandex School of Frontend Development Hackathon
 
-- Prototype WYSIWYG editor for mustache email templates at the Yandex SHRI hackathon
-- Handmade state manager similar to Zustand and router built on top
-- Team lead for the project
+**Team lead for a prototype WYSIWYG editor for Mustache-based email templates.**
+
+Led the project and coordinated implementation across the team. Built core application infrastructure including a custom state manager and router, alongside the editor prototype.
 
 ## Technical focus
 
-**Languages:** Go, TypeScript, Rust, Python, JavaScript, GdScript
+**Languages:** Go, TypeScript, Rust, Python, JavaScript
 
 **Distributed systems & networking:** Reticulum, Yggdrasil, gRPC, WebSockets, TCP, distributed state, leases, service discovery
 
 **AI infrastructure:** coding agents, OpenAI-compatible APIs, model routing, retries, fallbacks, provider abstraction, context management
 
-**Backend & data:** Node.js, NestJS, PostgreSQL, Redis, MongoDB, ArangoDB
+**Backend & data:** Node.js, NestJS, PostgreSQL, Redis
 
 **Infrastructure:** NixOS, Docker / OCI, containerd, Kubernetes, GitHub Actions, Caddy, Nginx, Grafana
 
