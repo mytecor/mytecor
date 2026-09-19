@@ -1,76 +1,70 @@
 # Vladislav Afonin
 
-**Software Engineer - Distributed Systems · Developer Infrastructure · AI Tooling**
-
-[GitHub](https://github.com/mytecor) · [LinkedIn](https://linkedin.com/in/mytecor) · [Telegram](https://t.me/mytecor) · [mytecor@gmail.com](mailto:mytecor@gmail.com)
+**Distributed Systems · Developer Infrastructure · AI Tooling · Full-stack**
 
 ## About
 
-**Software Engineer** specializing in distributed systems, developer infrastructure, application architecture, and AI tooling.
+**Software Engineer** focused on distributed systems, developer infrastructure, application architecture, and AI tooling.
 
-Strong focus on system design, type safety, explicit interfaces, and minimizing unnecessary runtime complexity. Experience spans backend systems, networking, CI/CD, distributed state, application platforms, and developer tooling.
+Experience spans platform engineering, backend systems, networking, CI/CD, distributed state, and developer-facing infrastructure. Strong emphasis on type safety, explicit system boundaries, predictable failure handling, and reducing operational complexity.
 
-Engineering decisions are driven by maintainability, failure modes, algorithmic complexity, dependency cost, and operational simplicity. Non-trivial changes are typically supported by RFCs, design documentation, source-level research, profiling, and experimentation.
+Technical work is typically driven by source-level research, RFCs, design documentation, profiling, and experimentation. Current interests include decentralized computing, mesh networking, alternative transports, and infrastructure for LLM agents, including model routing, persistent sessions, provider abstraction, and OpenAI-compatible APIs.
 
-Current areas of interest include decentralized computing, mesh networking and alternative transports such as Reticulum and Yggdrasil, as well as infrastructure for LLM agents: model routing, context management, persistent sessions, provider abstraction, and OpenAI-compatible APIs.
+Publishes technical notes and engineering articles on distributed systems, networking, infrastructure, and agent tooling in a [Telegram channel](https://t.me/mytelog).
 
-## Engineering highlights
+## Selected Engineering Problems
 
-### FinTech platform - 80+ applications, 10+ teams
+### Scaling an internal platform across 80+ applications
 
-Designed and evolved parts of an internal application platform powering more than 80 FinTech admin panels across approximately six environments and used by more than ten engineering teams.
+An internal FinTech platform had grown to more than 80 administrative applications across approximately ten environments and was used by over ten engineering teams. Shared concerns such as authentication, routing, runtime behavior, CI/CD, and deployment needed to remain consistent while individual applications continued to evolve independently.
 
-Owned and contributed to the platform runtime, shared libraries, authentication, routing, CI/CD, and deployment infrastructure.
+Worked on the platform architecture and shared infrastructure, including runtime components, libraries, authentication, routing, deployment flows, and CI/CD. The platform became a common foundation for product teams instead of requiring each application to solve the same infrastructure problems independently.
 
-Initiated and led the migration of the platform and its BFF layer from GraphQL to tRPC. The migration removed schema compilation and duplicated runtime validation, simplified nested data structures, reduced protocol and client-bundle overhead, and eliminated a recurring class of API compatibility failures.
+### Replacing GraphQL where it created more complexity than value
 
-The migration covered roughly 80 applications and was completed in about a month.
+The platform's GraphQL layer introduced schema compilation, duplicated validation, cumbersome handling of nested structures, additional parsing overhead, and a recurring risk of backward-incompatible API changes.
 
-### Chat SDK
+Initiated and led a migration from GraphQL to tRPC across approximately 80 applications and their BFF layer. The migration replaced separately compiled schemas and runtime contract validation with end-to-end TypeScript types and removed the need for custom scalars or loosely typed JSON structures for complex data.
 
-Initiated and designed a framework-independent chat SDK from scratch, replacing a tightly coupled collection of React hooks with a standalone synchronization core backed by a local database.
+The migration was completed in roughly one month and eliminated a recurring class of API compatibility failures while simplifying development and reducing protocol and client-bundle overhead.
 
-Designed and implemented:
+### Separating chat state from the UI framework
 
-- local and remote state synchronization
-- offline state
-- optimistic mutations
-- retries and reconnect recovery
-- pagination
-- reply navigation
-- transport abstraction
+Chat functionality had evolved into a tightly coupled collection of React hooks that combined networking, local state, synchronization, and UI concerns. This made behavior difficult to reason about and increasingly expensive to extend.
 
-The resulting architecture moved network and synchronization concerns out of the UI layer and made the chat domain independent of React.
+Initiated and designed a standalone Chat SDK with a framework-independent core and a local database as the source of client-side state. Implemented synchronization with the remote backend, offline behavior, optimistic updates, retries, reconnect recovery, pagination, and reply navigation.
 
-### Help Center platform
+The resulting architecture moved synchronization and transport concerns out of React and exposed a consistent local state model to the UI layer.
 
-Owned the technical development of Help Center applications for Yandex FinTech.
+### Launching an existing service in a new environment
 
-Extracted an existing Help Center from the banking web monolith and independently brought it to production in a new Uzbekistan environment, including CI/CD, deployment configuration, routing, integration, and release flows.
+An existing Help Center was embedded in the banking monolith and could not be released or tested independently. Launching it in a new Uzbekistan environment also required dealing with unfamiliar deployment infrastructure, multiple proxy layers, and the absence of a dedicated DevOps engineer within the team.
 
-Introduced independent releases and feature-flagged zero-downtime rollout, decoupling Help Center testing and deployment from the main banking application.
+Extracted the Help Center into an independent service and handled the required CI/CD, deployment configuration, routing, integration, and release flows. The rollout was performed behind feature flags to avoid service disruption.
 
-Also designed and launched a new interactive Help Center using NestJS and Next.js.
+Independent deployment significantly reduced coupling with the main banking application and made testing and releases of the Help Center substantially faster.
 
 ## Commercial experience
 
 ### Yandex FinTech - Software Engineer (2022-2026)
 
-#### Frontend Developer (Nov 2024 - Jul 2026)
+### Frontend Developer (Nov 2024 - Jul 2026)
 
-- Designed the core architecture of an internal Chat SDK, including synchronization, transport, local persistence, offline behavior, and optimistic updates.
+- Designed the core architecture of an internal Chat SDK, including local persistence, synchronization, transport abstraction, offline behavior, optimistic updates, retries, reconnect recovery, pagination, and reply navigation.
 - Owned development of Help Center applications and their integration into the banking platform.
-- Extracted the external Help Center from a monolith and launched it as an independent service in a new Uzbekistan environment.
-- Built release and deployment flows in an environment without a dedicated DevOps engineer on the team.
+- Extracted the Help Center from the banking monolith and launched it as an independent service in a new Uzbekistan environment, covering CI/CD, deployment configuration, routing, integration, and release flows.
+- Introduced independent releases and feature-flagged rollout, decoupling Help Center delivery from the main banking application.
 - Developed a Zod/OpenAPI generator for tRPC-based internal applications.
-- Investigated production and integration issues including BFF memory leaks and cross-platform service communication.
-- Authored RFCs and design documents, participated in architecture reviews, and coordinated technical changes across frontend and backend teams.
-- Informally mentored engineers joining the projects.
+- Investigated complex runtime and integration issues, including BFF memory leaks and communication between services deployed on different platforms.
+- Worked with high availability, graceful degradation, retries, queues, distributed state, and failure recovery.
+- Authored RFCs and design documents, participated in architecture reviews, coordinated technical changes across frontend and backend teams, and informally mentored incoming engineers.
 
-#### Junior Frontend Developer (Jun 2022 - Oct 2023)
+### Junior Frontend Developer (Jun 2022 - Oct 2023)
 
-- Helped build an internal platform from the ground up that grew to power more than 80 FinTech admin panels across 10+ engineering teams.
-- Initiated and led the platform's GraphQL → tRPC migration across the frontend and BFF layers.
+- Helped build an internal platform from the ground up that grew to power more than **80 FinTech applications across ~6 environments and 10+ engineering teams**.
+- Worked on shared platform infrastructure including runtime components, authentication, routing, reusable libraries, CI/CD, and deployment flows.
+- Initiated and led the migration from GraphQL to tRPC across the frontend and BFF layers, completing the transition across approximately 80 applications in about one month.
+- Eliminated schema compilation and duplicated runtime validation, simplified complex API shapes, and removed a recurring class of contract compatibility failures.
 - Prepared the platform for deployment into new environments as part of international expansion.
 - Reworked an internal proxy around composable middleware and caching to improve reliability.
 - Integrated rate limiting on top of the Risk Management System.
@@ -219,20 +213,6 @@ Thesis project built around a custom application stack:
 **Infrastructure:** NixOS, Docker / OCI, containerd, Kubernetes, GitHub Actions, Caddy, Nginx, Grafana
 
 **Frontend:** React, Next.js, browser APIs
-
-## Engineering approach
-
-I tend to take ownership of problems that cross traditional frontend/backend/infrastructure boundaries.
-
-I use RFCs and design documentation for non-trivial changes, prefer explicit and type-safe interfaces, and routinely read documentation and source code when integrating unfamiliar systems.
-
-Coding agents are part of my default development workflow, and I also build infrastructure around them when existing tooling becomes limiting.
-
-## Open source & writing
-
-I maintain several open-source projects around distributed systems, networking, and agent infrastructure and contribute to projects in the Reticulum ecosystem, including `rns-rs`.
-
-I also write technical notes and engineering posts in my [Telegram channel](https://t.me/mytecor).
 
 ## Contacts
 
