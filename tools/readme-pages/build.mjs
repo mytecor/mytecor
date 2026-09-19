@@ -27,7 +27,7 @@ const printJs = await fs.readFile(
   "utf8",
 );
 
-for (const asset of ["og.png", "favicon.png", "favicon.svg", "logo.svg"]) {
+for (const asset of ["og.png", "favicon.png", "favicon.svg"]) {
   await fs.copyFile(
     path.join(__dirname, asset),
     path.join(outputDir, asset),
