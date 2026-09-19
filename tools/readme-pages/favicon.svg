@@ -1,4 +1,16 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <rect width="64" height="64" rx="14" fill="#0d1117"/>
-  <text x="32" y="43" font-family="Helvetica, Arial, sans-serif" font-size="30" font-weight="700" text-anchor="middle" fill="#7ee0b0">VA</text>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0d1117"/>
+      <stop offset="0.6" stop-color="#161b22"/>
+      <stop offset="1" stop-color="#1c2333"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#2f81f7"/>
+      <stop offset="1" stop-color="#7ee0b0"/>
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="14" fill="url(#bg)"/>
+  <text x="32" y="40" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="700" text-anchor="middle" fill="#7ee0b0">VA</text>
+  <rect x="20" y="46" width="28" height="3.5" rx="1.75" fill="url(#accent)"/>
 </svg>

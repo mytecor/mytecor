@@ -22,6 +22,13 @@
       padding: 0 96px;
     }
 
+    .logo {
+      display: block;
+      width: 112px;
+      height: 112px;
+      margin-bottom: 40px;
+    }
+
     .name {
       font-size: 72px;
       font-weight: 700;
@@ -53,7 +60,7 @@
     }
 
     .domain {
-      margin-top: 48px;
+      margin-top: 44px;
       font-size: 26px;
       color: #2f81f7;
       font-weight: 600;
@@ -62,6 +69,22 @@
 </head>
 <body>
   <div class="card">
+    <svg class="logo" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0" stop-color="#0d1117"/>
+          <stop offset="0.6" stop-color="#161b22"/>
+          <stop offset="1" stop-color="#1c2333"/>
+        </linearGradient>
+        <linearGradient id="accent" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0" stop-color="#2f81f7"/>
+          <stop offset="1" stop-color="#7ee0b0"/>
+        </linearGradient>
+      </defs>
+      <rect x="2" y="2" width="60" height="60" rx="14" fill="url(#bg)" stroke="url(#accent)" stroke-width="2"/>
+      <text x="32" y="40" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="700" text-anchor="middle" fill="#7ee0b0">VA</text>
+      <rect x="20" y="46" width="24" height="3" rx="1.5" fill="url(#accent)"/>
+    </svg>
     <div class="name">Vladislav Afonin</div>
     <div class="role">Software Engineer</div>
     <div class="divider"></div>

@@ -27,7 +27,7 @@ const printJs = await fs.readFile(
   "utf8",
 );
 
-for (const asset of ["og.jpg", "favicon.png", "favicon.svg"]) {
+for (const asset of ["og.png", "favicon.png", "favicon.svg"]) {
   await fs.copyFile(
     path.join(__dirname, asset),
     path.join(outputDir, asset),
@@ -97,15 +97,15 @@ const html = `<!doctype html>
   >
   <meta
     property="og:image"
-    content="https://myt.su/og.jpg"
+    content="https://myt.su/og.png"
   >
   <meta
     property="og:image:width"
-    content="2400"
+    content="1200"
   >
   <meta
     property="og:image:height"
-    content="1260"
+    content="630"
   >
   <meta
     property="og:image:alt"
