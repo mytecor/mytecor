@@ -8,7 +8,7 @@
 
 Experience spans platform engineering, backend systems, networking, CI/CD, distributed state, and developer-facing infrastructure. Strong emphasis on type safety, explicit system boundaries, predictable failure handling, and reducing operational complexity.
 
-Technical work is typically driven by source-level research, RFCs, design documentation, profiling, and experimentation. Current work and research areas include decentralized computing, mesh networking, alternative transports, and LLM agent systems, including model routing, persistent sessions, provider abstraction, and OpenAI-compatible APIs.
+Technical work is typically driven by source-level research, RFCs, design documentation, profiling, and experimentation. Current work and research areas include decentralized computing, mesh networking, alternative transports, and LLM agent systems, with a focus on model routing, persistent sessions, provider abstraction, and OpenAI-compatible APIs.
 
 Publishes technical notes and engineering articles on distributed systems, networking, infrastructure, and agent tooling in a [Telegram channel](https://t.me/mytelog).
 
@@ -18,7 +18,7 @@ Publishes technical notes and engineering articles on distributed systems, netwo
 
 An internal FinTech platform had grown to more than 80 administrative applications across approximately ten environments and was used by over ten engineering teams. Shared concerns such as authentication, routing, runtime behavior, CI/CD, and deployment needed to remain consistent while individual applications continued to evolve independently.
 
-Designed and evolved shared platform infrastructure, including runtime components, libraries, authentication, routing, deployment flows, and CI/CD. Centralized common concerns at the platform level while preserving independent application development across teams.
+Designed and evolved shared platform infrastructure, including runtime components, libraries, authentication, routing, deployment flows, and CI/CD, while preserving independent application development across teams.
 
 ### Migrating 80+ applications from GraphQL to tRPC
 
@@ -44,9 +44,9 @@ Extracted the Help Center into an independent service and handled the required C
 
 Independent deployment decoupled Help Center delivery from the main banking application and enabled separate testing and release cycles.
 
-## Commercial experience
+## Commercial Experience
 
-### Yandex FinTech (2022 - 2026)
+### Yandex FinTech (2022-2026)
 
 #### Frontend Developer (Nov 2024 - Jul 2026)
 
@@ -61,15 +61,13 @@ Independent deployment decoupled Help Center delivery from the main banking appl
 #### Junior Frontend Developer (Jun 2022 - Oct 2023)
 
 - Helped build an internal application platform that grew to power more than **80 FinTech applications across 10+ engineering teams**.
-- Worked on shared platform infrastructure including runtime components, authentication, routing, reusable libraries, CI/CD, and deployment flows.
+- Developed shared platform infrastructure including runtime components, authentication, routing, reusable libraries, CI/CD, and deployment flows.
 - Initiated and led the migration of approximately 80 applications and their BFF layer from GraphQL to tRPC.
 - Prepared the platform for deployment into additional environments as part of international expansion.
 - Reworked an internal proxy around composable middleware and caching to improve reliability.
 - Integrated rate limiting on top of the Risk Management System.
 - Coordinated a major design-system upgrade across internal applications and dependent libraries.
 - Upgraded the Node.js runtime used by CI/CD infrastructure.
-
-## Selected Open-Source Projects
 
 ### [r1s](https://github.com/mytecor/r1s)
 
@@ -79,15 +77,13 @@ Designed and built a decentralized execution system in Go for running OCI worklo
 
 Clients publish workload demand, discover independent allocators over Reticulum, collect capacity offers, and select an execution target.
 
-- decentralized allocator discovery and offer/select scheduling
-- OCI execution through containerd
-- cryptographic cluster membership
-- authenticated control-plane communication
-- client-held workload leases
-- durable workload intent
-- recovery across client disconnects and allocator restarts
-- local execution state and log retention
-- a persistent local gRPC client API with streamed state updates
+- Implements decentralized allocator discovery and offer/select scheduling.
+- Executes OCI workloads through containerd.
+- Provides cryptographic cluster membership and authenticated control-plane communication.
+- Uses client-held workload leases and durable workload intent.
+- Recovers across client disconnects and allocator restarts.
+- Retains execution state and logs locally on allocators.
+- Exposes a persistent local gRPC client API with streamed state updates.
 
 Tested across multiple physical devices. An allocator requires only its RNS configuration and can join the execution fabric without centralized cluster infrastructure.
 
@@ -97,53 +93,22 @@ Tested across multiple physical devices. An allocator requires only its RNS conf
 
 Exposes complete coding agents such as Claude Code and Codex through an OpenAI-compatible API while preserving their native tools and runtime.
 
-- dynamic model discovery
-- streaming completions and reasoning
-- persistent session affinity
-- native session restoration after idle eviction or gateway restart
-- long-running agent heartbeat handling
-- working-directory isolation
-- reasoning-effort mapping
-- Linux, macOS, and Windows releases
+- Provides dynamic model discovery.
+- Streams completions and reasoning.
+- Maintains persistent session affinity.
+- Restores native sessions after idle eviction or gateway restart.
+- Handles long-running agent operations through stream heartbeats.
+- Restricts agent execution to configured working directories.
+- Maps OpenAI reasoning-effort controls to backend agent capabilities.
+- Ships cross-platform releases for Linux, macOS, and Windows.
 
 Designed so existing OpenAI-compatible applications can use full coding agents without implementing agent-specific integrations.
 
-### [rns-proxy](https://github.com/mytecor/rns-proxy)
-
-**SOCKS5 proxy for tunneling TCP traffic over the Reticulum Network Stack.**
-
-Built in Rust as a bridge between conventional IP applications and Reticulum. Applications connect to a standard local SOCKS5 endpoint, while TCP sessions are transported through an encrypted RNS link to a remote exit node.
-
-- Designed a client/server architecture with a local SOCKS5 proxy and an RNS-connected exit node.
-- Implemented a compact binary protocol for connection setup, bidirectional data transfer, errors, and session termination.
-- Multiplexed multiple TCP sessions over a single RNS link using session identifiers.
-- Added fragmentation and reassembly for payloads exceeding the RNS link MDU.
-- Implemented automatic recovery from link and transport failures with reconnection, exponential backoff, and RNS node recreation after repeated failures.
-
-The project allows existing SOCKS5-compatible applications to use Reticulum without native RNS integration.
-
-### [UBenchan](https://github.com/ubenchan/frontend)
-
-**Browser-based JavaScript and TypeScript benchmarking environment.**
-
-Designed and built an interactive benchmarking tool for comparing JavaScript and TypeScript implementations directly in the browser.
-
-- Reimplemented the benchmark execution engine around Web Workers to keep measurements isolated from the UI thread.
-- Integrated Monaco Editor for an IDE-like editing experience.
-- Added in-browser TypeScript compilation with Sucrase.
-- Built the application around a responsive React interface for creating, running, and comparing benchmark suites.
-
-### [IDEA Cipher](https://mytecor.github.io/idea-cipher/)
-
-**JavaScript implementation of the International Data Encryption Algorithm (IDEA).**
-
-Implemented the IDEA block cipher from the algorithm specification, including the 128-bit key schedule, generation and inversion of round subkeys, modular arithmetic, and block transformations.
-
-The implementation works directly with binary data through `Uint8Array`, `Uint16Array`, and `DataView`, and includes ECB-mode encryption and decryption together with an interactive browser demo.
-
 ### [Lattice](https://github.com/mytecor/lattice)
 
-Experimental infrastructure for autonomous nodes and agents over Reticulum, with reproducible environments built around Nix.
+**Experimental infrastructure for reproducible autonomous agent nodes over Reticulum.**
+
+Explores how agent services, networking, and execution environments can be composed into reproducible nodes using Reticulum for connectivity and Nix flakes for system configuration.
 
 ## Other Engineering Projects
 
