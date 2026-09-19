@@ -1,15 +1,19 @@
 import fs from "node:fs/promises";
 import path from "node:path";
+import { fileURLToPath, pathToFileURL } from "node:url";
 import { chromium } from "playwright";
 
-const pagesUrl = process.env.PAGES_URL;
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
-if (!pagesUrl) {
-  throw new Error("PAGES_URL is not defined");
-}
+// The PDF is generated from the locally-built site (build.mjs output),
+// so it does not depend on a deployed Pages instance being reachable.
+const siteDir = path.resolve(__dirname, "../../.site");
+const indexFile = path.join(siteDir, "index.html");
+const pagesUrl = pathToFileURL(indexFile).href;
 
 const artifactsDir = path.resolve(
-  process.cwd(),
+  __dirname,
   "../../artifacts",
 );
 

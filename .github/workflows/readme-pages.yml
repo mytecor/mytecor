@@ -72,9 +72,9 @@ jobs:
 
 
   generate-pdf:
-    name: Generate PDF from deployed Pages
+    name: Generate PDF from built site
     needs:
-      - deploy-pages
+      - build-pages
 
     runs-on: ubuntu-latest
 
@@ -82,7 +82,6 @@ jobs:
       contents: write
 
     env:
-      PAGES_URL: ${{ needs.deploy-pages.outputs.page_url }}
       GH_TOKEN: ${{ github.token }}
 
     steps:
@@ -100,40 +99,15 @@ jobs:
         working-directory: tools/readme-pages
         run: npm ci
 
+      - name: Build README site
+        working-directory: tools/readme-pages
+        run: npm run build
+
       - name: Install Playwright Chromium
         working-directory: tools/readme-pages
         run: npx playwright install --with-deps chromium
 
-      - name: Wait for deployed GitHub Pages
-        shell: bash
-        run: |
-          set -euo pipefail
-
-          echo "Waiting for deployed page:"
-          echo "$PAGES_URL"
-
-          for attempt in $(seq 1 30); do
-            status="$(curl \
-              --silent \
-              --show-error \
-              --location \
-              --output /dev/null \
-              --write-out '%{http_code}' \
-              "$PAGES_URL" || true)"
-
-            if [ "$status" = "200" ]; then
-              echo "GitHub Pages is available."
-              exit 0
-            fi
-
-            echo "Attempt $attempt/30: HTTP $status"
-            sleep 2
-          done
-
-          echo "GitHub Pages did not become available."
-          exit 1
-
-      - name: Generate PDF from deployed Pages
+      - name: Generate PDF from built site
         working-directory: tools/readme-pages
         run: npm run pdf
 
@@ -165,7 +139,7 @@ jobs:
               "$RELEASE_TAG" \
               "$PDF_PATH" \
               --title "CV" \
-              --notes "Automatically generated from the deployed GitHub Pages version of README.md." \
+              --notes "Automatically generated from the locally-built README site (build.mjs)." \
               --target "${GITHUB_SHA}" \
               --latest=false
           fi
