@@ -1,142 +1,197 @@
 # Vladislav Afonin
 
-[![Total time coded since Oct 6 2021](https://wakatime.com/badge/user/e81ab393-8d26-4758-8a10-ad6cc672dc16.svg?style=for-the-badge&color=151515)](https://wakatime.com/@mytecor)
-![TypeScript](https://img.shields.io/badge/TypeScript-151515?logo=typescript&style=for-the-badge)![JavaScript](https://img.shields.io/badge/JavaScript-151515?logo=javascript&style=for-the-badge)![Rust](https://img.shields.io/badge/Rust-151515?logo=rust&style=for-the-badge)![Nix](https://img.shields.io/badge/Nix-151515?logo=nixos&style=for-the-badge)![GDScript](https://img.shields.io/badge/GDScript-151515?logo=godot-engine&style=for-the-badge)![Python](https://img.shields.io/badge/Python-151515?logo=python&style=for-the-badge)![PHP](https://img.shields.io/badge/PHP-151515?logo=php&style=for-the-badge)![Go](https://shields.io/badge/Go-151515?logo=go&style=for-the-badge)
+**Software Engineer - Distributed Systems · Developer Infrastructure · AI Tooling**
 
-## About
+[GitHub](https://github.com/mytecor) · [LinkedIn](https://linkedin.com/in/mytecor) · [Telegram](https://t.me/mytecor) · [mytecor@gmail.com](mailto:mytecor@gmail.com)
 
-**Software Engineer** specializing in building applications at the cutting edge of technology. Guided by KISS, DRY, and type-safety principles, with a passion for architecture design and refactoring. Years of curating best practices through personal projects and applying them professionally.<br/>
-Focused on algorithm asymptotics and choosing optimal solutions while balancing development time. Committed to keeping the client bundle lean by avoiding unnecessary runtime dependencies. Testing covers core and critical application paths. Well-versed in web vulnerabilities, with hands-on experience in SQL injections, web scraping, anti-bot bypass, and CAPTCHA solving.<br/>
-Tasks are decomposed and thoroughly documented to preserve context. Research-driven workflow: search engines, articles, documentation, and source code reading. Neural networks are actively used to cut down on routine work.<br/>
-Currently fascinated by web3, blockchain, and distributed computing, as well as building mesh networks (RNS/i2p/Yggdrasil/ipfs) over (WebRTC/LoRa/HaLow).
+I design developer platforms, distributed systems, and infrastructure that removes operational complexity from product teams.
+
+My work spans backend and application architecture, networking, CI/CD, distributed state, and developer tooling. I prefer simple, type-safe systems with explicit boundaries and as little runtime complexity as practical.
+
+Currently focused on decentralized computing, mesh networking, and infrastructure around LLM agents.
+
+## Engineering highlights
+
+### FinTech platform - 80+ applications, 10+ teams
+
+Designed and evolved parts of an internal application platform powering more than 80 FinTech admin panels across approximately six environments and used by more than ten engineering teams.
+
+Owned and contributed to the platform runtime, shared libraries, authentication, routing, CI/CD, and deployment infrastructure.
+
+Initiated and led the migration of the platform and its BFF layer from GraphQL to tRPC. The migration removed schema compilation and duplicated runtime validation, simplified nested data structures, reduced protocol and client-bundle overhead, and eliminated a recurring class of API compatibility failures.
+
+The migration covered roughly 80 applications and was completed in about a month.
+
+### Chat SDK
+
+Initiated and designed a framework-independent chat SDK from scratch, replacing a tightly coupled collection of React hooks with a standalone synchronization core backed by a local database.
+
+Designed and implemented:
+
+* local and remote state synchronization
+* offline state
+* optimistic mutations
+* retries and reconnect recovery
+* pagination
+* reply navigation
+* transport abstraction
+
+The resulting architecture moved network and synchronization concerns out of the UI layer and made the chat domain independent of React.
+
+### Help Center platform
+
+Owned the technical development of Help Center applications for Yandex FinTech.
+
+Extracted an existing Help Center from the banking web monolith and independently brought it to production in a new Uzbekistan environment, including CI/CD, deployment configuration, routing, integration, and release flows.
+
+Introduced independent releases and feature-flagged zero-downtime rollout, decoupling Help Center testing and deployment from the main banking application.
+
+Also designed and launched a new interactive Help Center using NestJS and Next.js.
 
 ## Commercial experience
 
-### Yandex FinTech - Frontend Developer (Nov 2024 - Jul 2026)
+### Yandex FinTech - Software Engineer (2022-2026)
 
-- Developed the frontend chat SDK engine: SyncService, transport layer, local database, and optimistic updates.
-- Launched an interactive help center for the bank using Nest and NextJS, integrating it into the bank's web version.
-- Developed a Zod-OpenAPI generator for tRPC internal admin panels.
-- Migrated releases to new flows for rapid deployment in new clusters.
-- Decomposed a monolith and extracted the external help center service, launching it in a new location, completing all stages of new service establishment.
-- Contributed to "Big Yandex" (the larger Yandex ecosystem).
-- Contributed to the admin panel platform.
-- Prepared documentation on development in mobile emulators via mitmproxy for an internal presentation.
-- Experimented a lot with AI agents.
+#### Frontend Developer (Nov 2024 - Jul 2026)
 
-### Yandex FinTech - Junior Frontend Developer (Jun 2022 - Oct 2023)
+* Designed the core architecture of an internal Chat SDK, including synchronization, transport, local persistence, offline behavior, and optimistic updates.
+* Owned development of Help Center applications and their integration into the banking platform.
+* Extracted the external Help Center from a monolith and launched it as an independent service in a new Uzbekistan environment.
+* Built release and deployment flows in an environment without a dedicated DevOps engineer on the team.
+* Developed a Zod/OpenAPI generator for tRPC-based internal applications.
+* Investigated production and integration issues including BFF memory leaks and cross-platform service communication.
+* Authored RFCs and design documents, participated in architecture reviews, and coordinated technical changes across frontend and backend teams.
+* Informally mentored engineers joining the projects.
 
-- Contributed from the ground up to the platform powering over 80 FinTech admin panels.
-- Prepared the platform for deployment in new environments for international expansion.
-- Rewrote internal proxy to include multiple middlewares and added caching, thereby increasing service uptime.
-- Championed the shift from GraphQL to tRPC and migrated the platform, significantly improving DX and performance.
-- Integrated a rate limiter on top of RMS (Risk Management System).
-- Updated the design system across all internal admin panels and several hard-coded libraries, such as React Router, through a major version upgrade.
-- Upgraded Node.js version on CI/CD.
+#### Junior Frontend Developer (Jun 2022 - Oct 2023)
 
-## Open-source projects
+* Helped build an internal platform from the ground up that grew to power more than 80 FinTech admin panels across 10+ engineering teams.
+* Initiated and led the platform's GraphQL → tRPC migration across the frontend and BFF layers.
+* Prepared the platform for deployment into new environments as part of international expansion.
+* Reworked an internal proxy around composable middleware and caching to improve reliability.
+* Integrated rate limiting on top of the Risk Management System.
+* Coordinated a major design-system upgrade across internal applications and dependent libraries.
+* Upgraded the Node.js runtime used by CI/CD infrastructure.
 
-- [r1s - decentralized OCI workload execution fabric over the Reticulum Network Stack](https://github.com/mytecor/r1s)
-- [Lattice - autonomous node network over Reticulum, reproducible via Nix flakes](https://github.com/mytecor/lattice)
-- [SOCKS5 proxy over the Reticulum Network Stack](https://github.com/mytecor/rns-proxy)
-- [codec - declarative binary (de)serialization workspace](https://github.com/mytecor/codec)
-- [agentrun-openai - OpenAI adapter for the agentrun Go library](https://github.com/mytecor/agentrun-openai)
-- [Ubenchan benchmarking](https://github.com/ubenchan/frontend)
-- [IDEA cipher algorithm implementation](https://mytecor.github.io/idea-cipher/)
-- [Simple code editor with highlighting](https://mytecor.github.io/rmce/)
-- [Saucenao client](https://www.npmjs.com/package/node-sauce)
-- [Editor with live Preview for React](https://mytecor.github.io/live-example/)
-- [Path2regexp library for Route Pattern Matching](https://www.npmjs.com/package/path2regexp)
-- [Shortcut tracking lib](https://www.npmjs.com/package/hotkeys-nano)
+## Selected open-source projects
 
-## Private projects
+### [r1s](https://github.com/mytecor/r1s)
 
-### Myteor - a long-running pet project I've been developing for years
+**Decentralized OCI workload execution fabric over the Reticulum Network Stack.**
 
-- Multipart streaming for inter-service communication over raw TCP
-- Stream multiplexing
-- Binary protocol over CBOR/Msgpack (selectable)
-- Master-worker task queue with worker polling for execution capability
-- CJS to ESM compiler via a Rust plugin for SWC
-- SWC plugin for replacing ESM module paths with HTTP addresses
-- S3-caching proxy for npm, GitHub, and other data sources
+Designed and built a decentralized execution system in Go for running OCI workloads without a master node, global scheduler, registry, shared database, or mandatory common IP network.
 
-### NeuroDoctor - Telegram bot for tracking doctor visits and creating a general overview
+Clients publish workload demand, discover independent allocators over Reticulum, collect capacity offers, and select an execution target.
 
-- Rendering PDFs into images, parsing text from them into MD
-- Searching using embeddings on ChromaDB
-- Microservice architecture: parsing, analysis, API, and bot as a client
+The system includes:
 
-### Mini-App for Telegram
+* decentralized allocator discovery and offer/select scheduling
+* OCI execution through containerd
+* cryptographic cluster membership
+* authenticated control-plane communication
+* client-held workload leases
+* durable workload intent
+* recovery across client disconnects and allocator restarts
+* local execution state and log retention
+* a persistent local gRPC client API with streamed state updates
 
-- Reels-like interface using Web Animations API, spring animations, native feel
-- Custom drag-and-drop library
-- Design in Figma
+Tested across multiple physical devices. An allocator requires only its RNS configuration and can join the execution fabric without centralized cluster infrastructure.
 
-### Denpo - MTProto Telegram Client
+### [agentrun-openai](https://github.com/mytecor/agentrun-openai)
 
-- Streaming TL lexer and parser
-- Type generator from TL schema
-- Bidirectional binary (de)serialization with a focus on browser usage
+**OpenAI-compatible HTTP gateway for persistent coding-agent sessions.**
 
-### Electronic Gradebook as a Thesis Project
+Exposes complete coding agents such as Claude Code and Codex through an OpenAI-compatible API while preserving their native tools and runtime.
 
-- OAuth2 by RFC
-- Type-safe VK-like RPC (tRPC, before it became known), evolved from JSON RPC by RFC
-- Custom backend server
-- @rango (ODM for ArangoDB)
-- Vite SVG sprite loader
-- Custom SSR with streaming support
-- Custom CSS animation library
-- CI/CD from scratch
+Features include:
 
-### Email Template Editor for Market at Yandex School of Frontend Development Hackathon (SHRI)
+* dynamic model discovery
+* streaming completions and reasoning
+* persistent session affinity
+* native session restoration after idle eviction or gateway restart
+* long-running agent heartbeat handling
+* working-directory isolation
+* reasoning-effort mapping
+* Linux, macOS, and Windows releases
 
-- Prototype WYSIWYG editor for mustache email templates at the Yandex SHRI hackathon
-- Handmade state manager similar to Zustand and router built on top
-- Team lead for the project
+Designed so existing OpenAI-compatible applications can use full coding agents without implementing agent-specific integrations.
 
-### Brivbot - Bot for converting Habr articles to Instant View
+### [rns-proxy](https://github.com/mytecor/rns-proxy)
 
-- A simple project, I was interested in reverse-engineering Telegram's IV format
+SOCKS5 proxy over the Reticulum Network Stack, allowing conventional applications to communicate through an RNS network.
 
-### Nucon - Console for Nuphy Keyboard on Tauri
+### [codec](https://github.com/mytecor/codec)
 
-- An interesting experience reversing the USB communication protocol between the keyboard and standard software
+Declarative binary serialization and deserialization workspace.
 
-### Self-Hosting
+### [Lattice](https://github.com/mytecor/lattice)
 
-- NixOS as a base
-- Deployment using GitHub Actions
-- Xray for proxies, custom config distribution service
-- Minio as storage
-- Live sync for Obsidian
-- Plane for task tracking
+Experimental infrastructure for autonomous nodes and agents over Reticulum, with reproducible environments built around Nix.
 
-## Software
+## Other engineering projects
 
-| Category           | Name                                                                  |
-| ------------------ | --------------------------------------------------------------------- |
-| Editor             | Zed, VS Code, Neovim, Helix                                           |
-| MITM               | Proxyman, Mitmproxy, Charles, Wireshark                               |
-| HTTP Client        | Yaak, Insomnia, Postman, curl                                         |
-| Notes              | Obsidian, Notion                                                      |
-| Design             | Figma                                                                 |
-| Raster             | Procreate, Krita, Gimp                                                |
-| 3D Graphics        | Blender3D                                                             |
-| Version Control    | Git, Arc                                                              |
-| Server             | Caddy, Nginx                                                          |
-| Game Engine        | Godot Engine                                                          |
-| Database           | MongoDB (with Mongoose), ArangoDB, Redis, ChromaDB, PostgreSQL, MySQL |
-| Graphs, Alerts     | Grafana                                                               |
-| Object Storage     | Minio                                                                 |
-| OS                 | macOS, NixOS, Debian, Ubuntu                                          |
-| AI Tools           | Pi, Codex, Claude Code, OpenCode, OpenClaw                            |
-| Browser Automation | Playwright                                                            |
-| Containers         | Docker, Docker Compose, Podman, k8s                                   |
+### Myteor
+
+Long-running experimental distributed runtime project.
+
+Implemented:
+
+* multipart streaming over raw TCP
+* stream multiplexing
+* binary CBOR/MessagePack protocols
+* master/worker task distribution
+* Rust-based SWC plugins
+* ESM module rewriting
+* S3-backed caching proxies for package and source distribution
+
+### Denpo
+
+Experimental MTProto Telegram client with:
+
+* streaming TL lexer and parser
+* generated types from TL schemas
+* bidirectional binary serialization
+* browser-oriented architecture
+
+### Electronic Gradebook
+
+Thesis project built around a custom application stack:
+
+* OAuth2 implementation
+* type-safe RPC inspired by JSON-RPC
+* custom backend server
+* ArangoDB ODM
+* streaming SSR
+* CI/CD built from scratch
+
+## Technical focus
+
+**Languages:** Go, TypeScript, Rust, Python, JavaScript, GdScript
+
+**Distributed systems & networking:** Reticulum, Yggdrasil, gRPC, WebSockets, TCP, distributed state, leases, service discovery
+
+**AI infrastructure:** coding agents, OpenAI-compatible APIs, model routing, retries, fallbacks, provider abstraction, context management
+
+**Backend & data:** Node.js, NestJS, PostgreSQL, Redis, MongoDB, ArangoDB
+
+**Infrastructure:** NixOS, Docker / OCI, containerd, Kubernetes, GitHub Actions, Caddy, Nginx, Grafana
+
+**Frontend:** React, Next.js, browser APIs
+
+## Engineering approach
+
+I tend to take ownership of problems that cross traditional frontend/backend/infrastructure boundaries.
+
+I use RFCs and design documentation for non-trivial changes, prefer explicit and type-safe interfaces, and routinely read documentation and source code when integrating unfamiliar systems.
+
+Coding agents are part of my default development workflow, and I also build infrastructure around them when existing tooling becomes limiting.
+
+## Open source & writing
+
+I maintain several open-source projects around distributed systems, networking, and agent infrastructure and contribute to projects in the Reticulum ecosystem, including `rns-rs`.
+
+I also write technical notes and engineering posts in my [Telegram channel](https://t.me/mytecor).
 
 ## Contacts
 
-[Telegram](https://t.me/mytecor) / [mytecor@gmail.com](mailto:mytecor@gmail.com) / [GitHub](https://github.com/mytecor) / [LinkedIn](https://linkedin.com/in/mytecor)
-
-Thank you for your attention ❤️
+[GitHub](https://github.com/mytecor) · [LinkedIn](https://linkedin.com/in/mytecor) · [Telegram](https://t.me/mytecor) · [Email](mailto:mytecor@gmail.com)
