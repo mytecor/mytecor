@@ -28,13 +28,13 @@ Initiated and designed a framework-independent chat SDK from scratch, replacing 
 
 Designed and implemented:
 
-* local and remote state synchronization
-* offline state
-* optimistic mutations
-* retries and reconnect recovery
-* pagination
-* reply navigation
-* transport abstraction
+- local and remote state synchronization
+- offline state
+- optimistic mutations
+- retries and reconnect recovery
+- pagination
+- reply navigation
+- transport abstraction
 
 The resulting architecture moved network and synchronization concerns out of the UI layer and made the chat domain independent of React.
 
@@ -54,24 +54,24 @@ Also designed and launched a new interactive Help Center using NestJS and Next.j
 
 #### Frontend Developer (Nov 2024 - Jul 2026)
 
-* Designed the core architecture of an internal Chat SDK, including synchronization, transport, local persistence, offline behavior, and optimistic updates.
-* Owned development of Help Center applications and their integration into the banking platform.
-* Extracted the external Help Center from a monolith and launched it as an independent service in a new Uzbekistan environment.
-* Built release and deployment flows in an environment without a dedicated DevOps engineer on the team.
-* Developed a Zod/OpenAPI generator for tRPC-based internal applications.
-* Investigated production and integration issues including BFF memory leaks and cross-platform service communication.
-* Authored RFCs and design documents, participated in architecture reviews, and coordinated technical changes across frontend and backend teams.
-* Informally mentored engineers joining the projects.
+- Designed the core architecture of an internal Chat SDK, including synchronization, transport, local persistence, offline behavior, and optimistic updates.
+- Owned development of Help Center applications and their integration into the banking platform.
+- Extracted the external Help Center from a monolith and launched it as an independent service in a new Uzbekistan environment.
+- Built release and deployment flows in an environment without a dedicated DevOps engineer on the team.
+- Developed a Zod/OpenAPI generator for tRPC-based internal applications.
+- Investigated production and integration issues including BFF memory leaks and cross-platform service communication.
+- Authored RFCs and design documents, participated in architecture reviews, and coordinated technical changes across frontend and backend teams.
+- Informally mentored engineers joining the projects.
 
 #### Junior Frontend Developer (Jun 2022 - Oct 2023)
 
-* Helped build an internal platform from the ground up that grew to power more than 80 FinTech admin panels across 10+ engineering teams.
-* Initiated and led the platform's GraphQL → tRPC migration across the frontend and BFF layers.
-* Prepared the platform for deployment into new environments as part of international expansion.
-* Reworked an internal proxy around composable middleware and caching to improve reliability.
-* Integrated rate limiting on top of the Risk Management System.
-* Coordinated a major design-system upgrade across internal applications and dependent libraries.
-* Upgraded the Node.js runtime used by CI/CD infrastructure.
+- Helped build an internal platform from the ground up that grew to power more than 80 FinTech admin panels across 10+ engineering teams.
+- Initiated and led the platform's GraphQL → tRPC migration across the frontend and BFF layers.
+- Prepared the platform for deployment into new environments as part of international expansion.
+- Reworked an internal proxy around composable middleware and caching to improve reliability.
+- Integrated rate limiting on top of the Risk Management System.
+- Coordinated a major design-system upgrade across internal applications and dependent libraries.
+- Upgraded the Node.js runtime used by CI/CD infrastructure.
 
 ## Selected open-source projects
 
@@ -85,15 +85,15 @@ Clients publish workload demand, discover independent allocators over Reticulum,
 
 The system includes:
 
-* decentralized allocator discovery and offer/select scheduling
-* OCI execution through containerd
-* cryptographic cluster membership
-* authenticated control-plane communication
-* client-held workload leases
-* durable workload intent
-* recovery across client disconnects and allocator restarts
-* local execution state and log retention
-* a persistent local gRPC client API with streamed state updates
+- decentralized allocator discovery and offer/select scheduling
+- OCI execution through containerd
+- cryptographic cluster membership
+- authenticated control-plane communication
+- client-held workload leases
+- durable workload intent
+- recovery across client disconnects and allocator restarts
+- local execution state and log retention
+- a persistent local gRPC client API with streamed state updates
 
 Tested across multiple physical devices. An allocator requires only its RNS configuration and can join the execution fabric without centralized cluster infrastructure.
 
@@ -105,20 +105,52 @@ Exposes complete coding agents such as Claude Code and Codex through an OpenAI-c
 
 Features include:
 
-* dynamic model discovery
-* streaming completions and reasoning
-* persistent session affinity
-* native session restoration after idle eviction or gateway restart
-* long-running agent heartbeat handling
-* working-directory isolation
-* reasoning-effort mapping
-* Linux, macOS, and Windows releases
+- dynamic model discovery
+- streaming completions and reasoning
+- persistent session affinity
+- native session restoration after idle eviction or gateway restart
+- long-running agent heartbeat handling
+- working-directory isolation
+- reasoning-effort mapping
+- Linux, macOS, and Windows releases
 
 Designed so existing OpenAI-compatible applications can use full coding agents without implementing agent-specific integrations.
 
+### [UBenchan](https://github.com/ubenchan/frontend)
+
+**Browser-based JavaScript and TypeScript benchmarking environment.**
+
+Designed and built an interactive benchmarking tool for comparing JavaScript and TypeScript implementations directly in the browser.
+
+- Reimplemented the benchmark execution engine around Web Workers to keep measurements isolated from the UI thread.
+- Integrated Monaco Editor for an IDE-like editing experience.
+- Added in-browser TypeScript compilation with Sucrase.
+- Built the application around a responsive React interface for creating, running, and comparing benchmark suites.
+
+### [IDEA Cipher](https://mytecor.github.io/idea-cipher/)
+
+**JavaScript implementation of the International Data Encryption Algorithm (IDEA).**
+
+Implemented the IDEA block cipher from the algorithm specification, including the 128-bit key schedule, generation and inversion of round subkeys, modular arithmetic, and block transformations.
+
+The implementation works directly with binary data through `Uint8Array`, `Uint16Array`, and `DataView`, and includes ECB-mode encryption and decryption together with an interactive browser demo.
+
 ### [rns-proxy](https://github.com/mytecor/rns-proxy)
 
-SOCKS5 proxy over the Reticulum Network Stack, allowing conventional applications to communicate through an RNS network.
+**SOCKS5 proxy for tunneling arbitrary TCP traffic over the Reticulum Network Stack.**
+
+Built in Rust as a compatibility layer between conventional IP applications and Reticulum: applications connect to a standard local SOCKS5 endpoint, while their TCP sessions are transported through an encrypted RNS mesh to a remote exit node.
+
+- Designed a client/server architecture with a local SOCKS5 proxy and an RNS-connected exit node that establishes ordinary TCP connections on behalf of clients.
+- Implemented a custom binary framing protocol for `CONNECT`, connection result, bidirectional `DATA`, and `CLOSE` messages.
+- Multiplexed multiple independent TCP sessions over a single RNS link using session identifiers instead of creating a separate Reticulum connection for every socket.
+- Implemented automatic fragmentation and reassembly for frames exceeding the RNS link MDU.
+- Added recovery from link and underlying transport failures with automatic reconnection, exponential backoff, and full RNS node recreation after repeated failures.
+- Used asynchronous I/O with Rust and Tokio to relay traffic concurrently between SOCKS5 clients, the RNS transport, and remote TCP endpoints.
+- Added persistent RNS identities for exit nodes so their destination address remains stable across restarts.
+- Kept the interface transparent to applications: any software supporting SOCKS5 can use Reticulum without native RNS integration.
+
+The project explores how conventional stream-oriented applications can run over encrypted, delay-tolerant mesh networks without modifying the applications themselves.
 
 ### [codec](https://github.com/mytecor/codec)
 
@@ -136,33 +168,39 @@ Long-running experimental distributed runtime project.
 
 Implemented:
 
-* multipart streaming over raw TCP
-* stream multiplexing
-* binary CBOR/MessagePack protocols
-* master/worker task distribution
-* Rust-based SWC plugins
-* ESM module rewriting
-* S3-backed caching proxies for package and source distribution
+- multipart streaming over raw TCP
+- stream multiplexing
+- binary CBOR/MessagePack protocols
+- master/worker task distribution
+- Rust-based SWC plugins
+- ESM module rewriting
+- S3-backed caching proxies for package and source distribution
 
 ### Denpo
 
 Experimental MTProto Telegram client with:
 
-* streaming TL lexer and parser
-* generated types from TL schemas
-* bidirectional binary serialization
-* browser-oriented architecture
+- streaming TL lexer and parser
+- generated types from TL schemas
+- bidirectional binary serialization
+- browser-oriented architecture
 
 ### Electronic Gradebook
 
 Thesis project built around a custom application stack:
 
-* OAuth2 implementation
-* type-safe RPC inspired by JSON-RPC
-* custom backend server
-* ArangoDB ODM
-* streaming SSR
-* CI/CD built from scratch
+- OAuth2 implementation
+- type-safe RPC inspired by JSON-RPC
+- custom backend server
+- ArangoDB ODM
+- streaming SSR
+- CI/CD built from scratch
+
+### Email Template Editor for Market at Yandex School of Frontend Development Hackathon (SHRI)
+
+- Prototype WYSIWYG editor for mustache email templates at the Yandex SHRI hackathon
+- Handmade state manager similar to Zustand and router built on top
+- Team lead for the project
 
 ## Technical focus
 
