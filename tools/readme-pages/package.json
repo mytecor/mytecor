@@ -1,0 +1,13 @@
+{
+  "name": "readme-pages-tooling",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node build.mjs",
+    "pdf": "node generate-pdf.mjs"
+  },
+  "dependencies": {
+    "marked": "^16.0.0",
+    "playwright": "^1.55.0"
+  }
+}

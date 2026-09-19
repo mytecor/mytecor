@@ -104,7 +104,7 @@ Exposes complete coding agents such as Claude Code and Codex through an OpenAI-c
 
 Designed so existing OpenAI-compatible applications can use full coding agents without implementing agent-specific integrations.
 
-### [Lattice](https://github.com/mytecor/lattice)
+### [lattice](https://github.com/mytecor/lattice)
 
 **Experimental infrastructure for reproducible autonomous agent nodes over Reticulum.**
 
@@ -163,4 +163,4 @@ Led the project and coordinated implementation across the team. Built core appli
 
 ## Contacts
 
-[GitHub](https://github.com/mytecor) · [LinkedIn](https://linkedin.com/in/mytecor) · [Telegram](https://t.me/mytecor) · [Email](mailto:mytecor@gmail.com)
+[GitHub](https://github.com/mytecor) · [LinkedIn](https://linkedin.com/in/mytecor) · [Telegram](https://t.me/mytecor) · [Email](mailto:mytecor@gmail.com) · [CV PDF](https://github.com/mytecor/mytecor/releases/download/cv/cv.pdf)
