@@ -9,6 +9,7 @@ on:
       - tools/readme-pages/**
       - .github/workflows/readme-pages.yml
       - assets/**
+  workflow_dispatch:
 
 concurrency:
   group: readme-pages
