@@ -4,11 +4,15 @@
 
 [GitHub](https://github.com/mytecor) · [LinkedIn](https://linkedin.com/in/mytecor) · [Telegram](https://t.me/mytecor) · [mytecor@gmail.com](mailto:mytecor@gmail.com)
 
-I design developer platforms, distributed systems, and infrastructure that removes operational complexity from product teams.
+## About
 
-My work spans backend and application architecture, networking, CI/CD, distributed state, and developer tooling. I prefer simple, type-safe systems with explicit boundaries and as little runtime complexity as practical.
+**Software Engineer** specializing in distributed systems, developer infrastructure, application architecture, and AI tooling.
 
-Currently focused on decentralized computing, mesh networking, and infrastructure around LLM agents.
+Strong focus on system design, type safety, explicit interfaces, and minimizing unnecessary runtime complexity. Experience spans backend systems, networking, CI/CD, distributed state, application platforms, and developer tooling.
+
+Engineering decisions are driven by maintainability, failure modes, algorithmic complexity, dependency cost, and operational simplicity. Non-trivial changes are typically supported by RFCs, design documentation, source-level research, profiling, and experimentation.
+
+Current areas of interest include decentralized computing, mesh networking and alternative transports such as Reticulum and Yggdrasil, as well as infrastructure for LLM agents: model routing, context management, persistent sessions, provider abstraction, and OpenAI-compatible APIs.
 
 ## Engineering highlights
 
